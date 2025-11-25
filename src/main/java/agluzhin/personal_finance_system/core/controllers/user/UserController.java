@@ -1,7 +1,7 @@
 package agluzhin.personal_finance_system.core.controllers.user;
 
-import agluzhin.personal_finance_system.core.models.user.UserToCreate;
-import agluzhin.personal_finance_system.core.models.user.UserToSetActive;
+import agluzhin.personal_finance_system.core.dto.user.UserToCreate;
+import agluzhin.personal_finance_system.core.dto.user.UserToSetActive;
 import agluzhin.personal_finance_system.core.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
