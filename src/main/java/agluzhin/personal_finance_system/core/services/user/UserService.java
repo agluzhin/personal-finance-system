@@ -7,8 +7,6 @@ import agluzhin.personal_finance_system.core.entities.user.User;
 import agluzhin.personal_finance_system.core.repositories.InMemoryDataStorage;
 
 import agluzhin.personal_finance_system.core.utils.ValidationUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -34,7 +32,7 @@ public class UserService {
         ValidationUtil.requireNonNull("password", userCreateRequest.password());
         ValidationUtil.requireNonExistUserByLogin(InMemoryDataStorage.users, userCreateRequest.login());
 
-        User user = new User(userCreateRequest.login(), userCreateRequest.password());
+        User user = new User(userCreateRequest.login().trim(), userCreateRequest.password().trim());
         InMemoryDataStorage.users.put(user.getUserId(), user);
         InMemoryDataStorage.wallets.put(user.getWallet().getWalletId(), user.getWallet());
         return user;

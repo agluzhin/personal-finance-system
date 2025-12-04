@@ -57,7 +57,7 @@ public class UserController {
         );
     }
 
-    @PostMapping("/setIsActive")
+    @PatchMapping("/setIsActive")
     public ResponseEntity<?> setIsActive(
             @RequestBody UserSetIsActiveRequest userSetIsActiveRequest
     ) throws IllegalArgumentException, NoSuchElementException {
@@ -70,7 +70,7 @@ public class UserController {
 
     }
 
-    @PostMapping("/authorize")
+    @PatchMapping("/authorize")
     public ResponseEntity<?> authorize(
             @RequestBody UserAuthorizeRequest userAuthorizeRequest
     ) throws IllegalArgumentException, NoSuchElementException {
