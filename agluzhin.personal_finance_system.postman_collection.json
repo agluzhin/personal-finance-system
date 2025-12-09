@@ -1,0 +1,457 @@
+{
+	"info": {
+		"_postman_id": "d54e72de-41c7-41ac-a106-0bbce2f8c5ff",
+		"name": "agluzhin.personal_finance_system",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42335872"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "/api/users/{id}",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/users/ece0a60a-5eff-4d1c-bb51-9640be1c73e1",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"ece0a60a-5eff-4d1c-bb51-9640be1c73e1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/users",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/api/users/create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/create?login=abcd&password=abcd",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"create"
+									],
+									"query": [
+										{
+											"key": "login",
+											"value": "abcd"
+										},
+										{
+											"key": "password",
+											"value": "abcd"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PATCH",
+					"item": [
+						{
+							"name": "/api/users/{id}/set",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/users/ece0a60a-5eff-4d1c-bb51-9640be1c73e1/set?isActive=true",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"ece0a60a-5eff-4d1c-bb51-9640be1c73e1",
+										"set"
+									],
+									"query": [
+										{
+											"key": "isActive",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/users/{id}/authorize",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}/users/ece0a60a-5eff-4d1c-bb51-9640be1c73e1/authorize?login=abcd&password=abcd",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"ece0a60a-5eff-4d1c-bb51-9640be1c73e1",
+										"authorize"
+									],
+									"query": [
+										{
+											"key": "login",
+											"value": "abcd"
+										},
+										{
+											"key": "password",
+											"value": "abcd"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "wallet",
+			"item": [
+				{
+					"name": "GET",
+					"item": [
+						{
+							"name": "/api/wallets",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// UserCreateRequest.java\r\n{\r\n    \"login\": \"agluzhin\",\r\n    \"password\": \"5874-fkjg-4593-lkdi\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/wallets/{id}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/wallet/89779309-6217-4693-9805-639f44261a09",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallet",
+										"89779309-6217-4693-9805-639f44261a09"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/wallets/{id}/info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "// UserCreateRequest.java\r\n{\r\n    \"login\": \"agluzhin\",\r\n    \"password\": \"5874-fkjg-4593-lkdi\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}/wallet/89779309-6217-4693-9805-639f44261a09/info",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallet",
+										"89779309-6217-4693-9805-639f44261a09",
+										"info"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "POST",
+					"item": [
+						{
+							"name": "/api/wallets/{id}/categories/add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/89779309-6217-4693-9805-639f44261a09/categories/add?type=income&name=Зарплата&value=40000",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"89779309-6217-4693-9805-639f44261a09",
+										"categories",
+										"add"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "income"
+										},
+										{
+											"key": "name",
+											"value": "Зарплата"
+										},
+										{
+											"key": "value",
+											"value": "40000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/wallets/{id}/budgets/add",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/89779309-6217-4693-9805-639f44261a09/budgets/add?name=Кредит&value=60000",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"89779309-6217-4693-9805-639f44261a09",
+										"budgets",
+										"add"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Кредит"
+										},
+										{
+											"key": "value",
+											"value": "60000"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DELETE",
+					"item": [
+						{
+							"name": "/api/wallets/{id}/categories/delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/89779309-6217-4693-9805-639f44261a09/categories/delete?type=income&name=Зарплата",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"89779309-6217-4693-9805-639f44261a09",
+										"categories",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "income"
+										},
+										{
+											"key": "name",
+											"value": "Зарплата"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/api/wallets/{id}/budgets/delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/wallets/89779309-6217-4693-9805-639f44261a09/budgets/delete?name=Кредит",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"wallets",
+										"89779309-6217-4693-9805-639f44261a09",
+										"budgets",
+										"delete"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "Кредит"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": ""
+		}
+	]
+}
