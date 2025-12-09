@@ -3,46 +3,49 @@ package agluzhin.personal_finance_system.core.entities.wallet;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 /**
- * Данный класс представляет собой сущность "Wallet" (кошелек).
- * <p>Используется для хранения:</p>
- * - уникального идентификатора (walletId);<br>
- * - категорий по типу ДОХОДЫ/РАСХОДЫ (categories);<br>
- * - бюджетов по категориям (budgets).
+ * Данный класс представляет собой сущность "Wallet" (кошелек). Имеет следующие параметры:
+ * уникальный идентификатор (id), категории "income/expenditure" (categories), бюджеты по категориям (budgets).
  */
 public class Wallet {
-    String walletId;
+    String id;
     Map<String, Map<String, BigDecimal>> categories;
     Map<String, BigDecimal> budgets;
 
-    public Wallet() {
-        walletId = UUID.randomUUID().toString();
+
+    /**
+     * Конструктор создания экземпляра класса "Wallet".
+     * @param id входное значение уникального идентификатора "кошелька".
+     */
+    public Wallet(String id) {
+        // Присвоение случайного идентификатора.
+        this.id = id;
+        // Присвоение пустой коллекции категорий.
         categories = new HashMap<>();
+        // Присвоение пустой коллекции бюджетов.
         budgets = new HashMap<>();
     }
 
-
     /**
-     * Базовый getter для уникального идентификатора кошелька (walletId).
-     * @return значение walletId.
+     * Базовый getter для уникального идентификатора "кошелька".
+     * @return значение по полю "id".
      */
-    public String getWalletId() {
-        return walletId;
+    public String getId() {
+        return id;
     }
 
     /**
-     * Базовый getter для категорий по типу ДОХОДЫ/РАСХОДЫ (categories).
-     * @return коллекция значений categories.
+     * Базовый getter для категорий "кошелька".
+     * @return коллекция значений по полю "categories".
      */
     public Map<String, Map<String, BigDecimal>> getCategories() {
         return categories;
     }
 
     /**
-     * Базовый getter для бюджетов по категориям (budgets)
-     * @return коллекция значений budgets.
+     * Базовый getter для бюджетов "кошелька".
+     * @return коллекция значений по полю "budgets".
      */
     public Map<String, BigDecimal> getBudgets() {
         return budgets;

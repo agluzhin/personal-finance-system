@@ -1,99 +1,104 @@
 package agluzhin.personal_finance_system.core.entities.user;
 
-import agluzhin.personal_finance_system.core.entities.wallet.Wallet;
 import agluzhin.personal_finance_system.core.utils.PasswordUtil;
 
 import java.util.UUID;
 
 /**
- * Данный класс представляет собой сущность "User" (пользователь).
- * <p>Используется для хранения:</p>
- * - уникального идентификатора (userId);<br>
- * - логина (login);<br>
- * - хэшированного пароля (password);<br>
- * - статуса активности (isActive);<br>
- * - статуса авторизации (isAuthorized);<br>
- * - сущности "кошелек" (wallet).
+ * Данный класс представляет собой сущность "User" (пользователь). Имеет следующие параметры:
+ * уникальный идентификатор (id), логин (login), хэш пароля (password), статус активности (isActive),
+ * статус авторизации (isAuthorized), уникальный идентификатор "кошелька" (walletId).
  */
 public class User {
-    String userId;
+    String id;
     String login;
     String password;
     boolean isActive;
-    boolean isAuthorized;
-    Wallet wallet;
-
-    public User(String login, String password) {
-        userId = UUID.randomUUID().toString();
-        this.login = login;
-        this.password = PasswordUtil.encode(password);
-        isActive = true;
-        isAuthorized = false;
-        wallet = new Wallet();
-    }
-
+    boolean isAuthorize;
+    String walletId;
 
     /**
-     * Базовый getter для уникального идентификатора (userId).
-     * @return значение userId.
+     * Конструктор создания экземпляра класса "User".
+     * @param login входное значение логина, полученное от клиента;
+     * @param password входное значение пароля, полученное от клиента.
      */
-    public String getUserId() {
-        return userId;
+    public User(String login, String password) {
+        // Присвоение случайного идентификатора.
+        id = UUID.randomUUID().toString();
+        // Присвоение значения логина.
+        this.login = login;
+        // Присвоение хеш-значения пароля.
+        this.password = PasswordUtil.encode(password);
+        // Присвоение статуса: активен.
+        isActive = true;
+        // Присвоение статуса: не авторизован.
+        isAuthorize = false;
+        // Присвоение случайного идентификатора.
+        walletId = UUID.randomUUID().toString();
+    }
+
+
+    /**
+     * Базовый getter для уникального идентификатора "пользователя".
+     * @return значение по полю "id".
+     */
+    public String getId() {
+        return id;
     }
 
     /**
-     * Базовый getter для логина (login).
-     * @return значение login.
+     * Базовый getter для логина "пользователя".
+     * @return значение по полю "login".
      */
     public String getLogin() {
         return login;
     }
 
     /**
-     * Базовый getter для пароля (password).
-     * @return значение password.
+     * Базовый getter для хэша пароля "пользователя".
+     * @return значение по полю "password".
      */
     public String getPassword() {
         return password;
     }
 
     /**
-     * Базовый getter для кошелька (wallet).
-     * @return сущность wallet.
+     * Базовый getter для уникального идентификатора "кошелька".
+     * @return значение по полю "walletId".
      */
-    public Wallet getWallet() {
-        return wallet;
+    public String getWalletId() {
+        return walletId;
     }
 
     /**
-     * Базовый getter для статуса активности (isActive).
-     * @return значение isActive.
+     * Базовый getter для статуса активности "пользователя".
+     * @return значение по полю "isActive".
      */
     public boolean getIsActive() {
         return isActive;
     }
 
     /**
-     * Базовый setter для статуса активности (isActive).
-     * @param isActive принимает значения true/false.
+     * Базовый setter для статуса активности "пользователя".
+     * @param isActive входное значение для поля "isActive" (true/false).
      */
     public void setIsActive(boolean isActive) {
         this.isActive = isActive;
     }
 
     /**
-     * Базовый getter для статуса авторизации (isAuthorized).
-     * @return значение isAuthorized.
+     * Базовый getter для статуса авторизации "пользователя".
+     * @return значение по полю "isAuthorize".
      */
-    public boolean getIsAuthorized() {
-        return isAuthorized;
+    public boolean getIsAuthorize() {
+        return isAuthorize;
     }
 
     /**
-     * Базовый setter для статуса авторизации (isAuthorized).
-     * @param isAuthorized принимает значения true/false.
+     * Базовый setter для статуса авторизации "пользователя".
+     * @param isAuthorized  входное значение для поля "isAuthorize" (true/false).
      */
-    public void setIsAuthorized(boolean isAuthorized) {
-        this.isAuthorized = isAuthorized;
+    public void setIsAuthorize(boolean isAuthorized) {
+        this.isAuthorize = isAuthorized;
     }
 }

@@ -2,29 +2,29 @@ package agluzhin.personal_finance_system.core.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.expression.ParseException;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 
 /**
- * Данный класс является утилитой для работы с хешированием/сравнением паролей.
+ * Данный класс является утилитой для работы с хешированием/сравнением пароля "пользователя".
  */
 public class PasswordUtil {
-    // Логгер, используемый для вывода в консоль информации о состоянии приложения.
+    // Логгер, используемый для вывода в консоль информации о работе класса "PasswordUtil".
     private static final Logger LOG = LoggerFactory.getLogger(PasswordUtil.class);
     // Значение стандартного алгоритма хеширования.
     private static final String ALGORITHM = "SHA-256";
 
 
     /**
-     * Метод для хеширования пароля.
-     * @param rawPassword значение пароля, переданное клиентом при создании пользователя;
-     * @return хеш пароля.
-     * @throws IllegalStateException исключение в случае любых проблем с хешированием пароля.
+     * Метод хеширования пароля "пользователя" по алгоритму SHA-256.
+     * @param rawPassword входное значение пароля "пользователя".
+     * @return хеш-значение пароля "пользователя".
+     * @throws IllegalStateException исключение, связанное с возникновением любой проблемы в процессе хеширования пароля.
      */
     public static String encode(String rawPassword) throws IllegalStateException {
         try {
+            LOG.info(" ===== STARTING PASSWORD HASHING ===== ");
             MessageDigest digest = MessageDigest.getInstance(ALGORITHM);
             byte[] hash = digest.digest(rawPassword.getBytes(StandardCharsets.UTF_8));
             StringBuilder hex = new StringBuilder();
@@ -33,21 +33,22 @@ public class PasswordUtil {
                 if (hexByte.length() == 1) hex.append('0');
                 hex.append(hexByte);
             }
+            LOG.info("SUCCESS: password was hashed");
             return hex.toString();
         } catch (Exception ex) {
+            LOG.error("FAILED: password wasn't hashed");
             throw new IllegalStateException("failed to hash password");
         }
     }
 
 
     /**
-     * Метод сравнения паролей.
-     * @param rawPassword значение пароля, переданное клиентом при создании пользователя;
-     * @param hashedPassword значения хеша пароля, хранящегося в InMemoryDataStorage;
-     * @return значение результата проверки true/false.
-     * @throws IllegalStateException исключение в случае любых проблем с хешированием пароля.
+     * Метод сравнения паролей "пользователя".
+     * @param rawPassword входное значение пароля "пользователя";
+     * @param hashedPassword имеющееся в репозитории (UserRepository) хеш-значение пароля "пользователя";
+     * @return значение результата проверки (true/false).
      */
-    public static boolean matches(String rawPassword, String hashedPassword) throws IllegalStateException {
+    public static boolean matches(String rawPassword, String hashedPassword) {
         return encode(rawPassword).equals(hashedPassword);
     }
 }
