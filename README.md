@@ -7,11 +7,6 @@
 ## Содержание
 * [Технологии](#технологии)
 * [Структура проекта](#структура-проекта)
-* [Запуск](#запуск)
-    * [Локальный запуск](#локальный-запуск)
-    * [Docker](#docker)
-    * [Docker Compose](#docker-compose)
-    * [Makefile](#makefile)
 * [API Endpoints](#api-endpoints)
 * [Примечания](#примечания)
 ---
@@ -64,6 +59,6 @@ BASE_URL = http://localhost:8080/api
 | POST  | /wallets/{id}/categories/add | Добавить категорию в кошелек с "id" (PathVariable) по "type", "name" и "value" (RequestParams)                |
 | DELETE| /wallets/{id}/categories/delete | Удалить категорию из кошелека с "id" (PathVariable) по "type" и "name" (RequestParams)                     |
 | POST  | /wallets/{id}/budgets/add | Добавить бюджет в кошелек с "id" (PathVariable) по "name" и "value" (RequestParams)                              |
-| DELETE| /wallets/{id}/игвпуеы/delete | Удалить бюджет из кошелека с "id" (PathVariable) по "name" (RequestParam)                                     |
+| DELETE| /wallets/{id}/budgets/delete | Удалить бюджет из кошелека с "id" (PathVariable) по "name" (RequestParam)                                     |
 ---
 
